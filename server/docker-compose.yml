@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+    mongodb:
+        container_name: sweet-to-do-mongodb
+        image: mongo:4
+        ports:
+            - "27017:27017"
+        volumes:
+            - ./mongodb-data:/data/db
+        env_file: .env
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
+            - MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
+        networks:
+            - sweet-to-do-network
+    server:
+        container_name: sweet-to-do-server
+        image: sheylafernandes/sweet-to-do:1.0
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./src:/home/node/app/src
+        env_file: .env
+        environment:
+            - MONGO_USERNAME=$MONGO_USERNAME
+            - MONGO_PASSWORD=$MONGO_PASSWORD
+            - MONGO_HOSTNAME=db
+            - MONGO_PORT=$MONGO_PORT
+            - MONGO_DB=$MONGO_DB
+        links:
+            - mongodb
+        depends_on: 
+            - mongodb
+        networks:
+            - sweet-to-do-network

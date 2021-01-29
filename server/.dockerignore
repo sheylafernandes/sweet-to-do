@@ -1,0 +1,8 @@
+# Do not send to build context #
+######################
+
+node_modules
+mongodb-data
+npm-debug.log
+Dockerfile
+.dockerignore

@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+    server:
+        build: ./server
+        ports:
+            - "8080:8080"
+        depends_on:
+            - db
+        container_name: sweet-to-do-server
+    client:
+        build: ./client
+        ports:
+            - "80:80"
+        container_name: sweet-to-do-client
+    db:
+        image: mongo
+        ports:
+        - "27017:27017"
+        container_name: sweet-to-do-db

@@ -1,0 +1,17 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.sass-cache
+.Spotlight-V100
+.Trashes
+Thumbs.db
+
+# Others files #
+######################
+.env
+npm-debug.log
+node_modules
+dist
+/server/mongodb-data

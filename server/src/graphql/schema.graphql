@@ -1,0 +1,30 @@
+scalar DateTime
+
+type Query {
+    info: String!
+
+    # List all tasks
+    tasks: [Task!]!
+
+    # Fetch a single task by its `id`
+    task(id: ID!): Task
+}
+
+type Mutation {
+    # Create a task
+    createTask(name: String!, isActive: Boolean!): Task!
+
+    # Update a task
+    updateTask(id: ID!, name: String, isActive: Boolean): Task
+
+    # Delete a task
+    deleteTask(id: ID!): Task
+}
+
+type Task {
+    id: ID!
+    name: String!
+    isActive: Boolean!
+    createdAt: DateTime!
+    updatedAt: DateTime
+}

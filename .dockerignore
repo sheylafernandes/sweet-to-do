@@ -1,0 +1,7 @@
+# Do not send to build context #
+######################
+
+node_modules
+npm-debug.log
+Dockerfile
+.dockerignore

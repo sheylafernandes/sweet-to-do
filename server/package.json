@@ -1,0 +1,23 @@
+{
+    "name": "sweet-to-do-server",
+    "version": "1.0.0",
+    "description": "",
+    "repository": "https://github.com/sheylafernandes/sweet-to-do",
+    "author": "Sheyla Fernandes <sheyla.fernandes@gmail.com>",
+    "homepage": "https://github.com/sheylafernandes/sweet-to-do/server/#readme",
+    "main": "./src/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "pm2 update && pm2 start ecosystem.config.js"
+    },
+    "license": "ISC",
+    "devDependencies": {
+        "@prisma/cli": "^2.15.0"
+    },
+    "dependencies": {
+        "apollo-server": "^2.19.2",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "graphql": "^15.4.0"
+    }
+}
